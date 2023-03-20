@@ -1,22 +1,13 @@
-import { MetaModel } from './models/metadata'
+import { HealthProfileModel } from './models/health_profile'
 
-const metaModel = new MetaModel()
+const healthProfileModel = new HealthProfileModel()
 
 export default async (job: any) => {
   switch (job.name) {
-    case 'PERSON': {
-      const data = job.data.metadata
-      await metaModel.savePerson(data)
-      break
-    }
-    case 'OPD': {
-      const data = job.data.metadata
-      await metaModel.saveOpd(data)
-      break
-    }
-    case 'IPD': {
-      const data = job.data.metadata
-      await metaModel.saveIpd(data)
+
+    case 'SCREENING': {
+      const data = job.data.screening
+      await healthProfileModel.saveScreening(data)
       break
     }
 
