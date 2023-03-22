@@ -11,5 +11,11 @@ export default async (job: any) => {
       break
     }
 
+    case 'APPOINT': {
+      const data = job.data.appoint
+      await healthProfileModel.saveAppoint(data)
+      break
+    }
+
   }
 }
