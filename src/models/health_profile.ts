@@ -17,4 +17,19 @@ export class HealthProfileModel {
     });
   }
 
+  async saveAppoint(data: any): Promise<any> {
+    const db = await getConnection();
+    return new Promise((resolve: any, reject: any) => {
+      db('appoint')
+        .insert(data)
+        .onConflict(['hospcode', 'hn'])
+        .merge(['appoint_date', 'appoint_time', 'remark', 'updated_at'])
+        .then(() => resolve())
+        .catch((error: any) => reject(error))
+        .finally(async () => {
+          await db.destroy();
+        });
+    });
+  }
+
 }
