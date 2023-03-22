@@ -23,7 +23,7 @@ export default async (job: any) => {
         obj.hospcode = item.hospcode;
         obj.hn = item.hn;
 
-        obj.apoint_date = item.apoint_date;
+        obj.appoint_date = item.appoint_date;
         obj.appoint_time = item.appoint_time;
         obj.remark = item.remark;
         obj.created_at = item.created_at;
