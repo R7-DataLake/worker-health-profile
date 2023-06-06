@@ -19,6 +19,8 @@ const worker = new Worker('HEALTH_PROFILE', tasks, {
     max: 100,
     duration: 1000,
   },
+  maxStalledCount: 6,
+  stalledInterval: 30000,
   concurrency: CONCURRENCY,
   connection: redisConfiguration.connection
 });

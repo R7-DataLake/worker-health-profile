@@ -9,7 +9,7 @@ export default async (job: any) => {
 
     case 'SCREENING': {
       const data = job.data.screening
-      await healthProfileModel.saveScreening(data)
+      healthProfileModel.saveScreening(data)
       break
     }
 
@@ -31,7 +31,7 @@ export default async (job: any) => {
         data.push(obj);
       }
 
-      await healthProfileModel.saveAppoint(data)
+      healthProfileModel.saveAppoint(data)
       break
     }
 
